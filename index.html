@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Mahipal Puri — Computer Science Engineering student, MERN Stack Developer, AI Enthusiast. Portfolio of projects, skills and experience." />
+  <meta name="author" content="Mahipal Puri" />
+  <title>Mahipal Puri — Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- ============ 3D PARTICLE BACKGROUND ============ -->
+  <canvas id="bg-particles" aria-hidden="true"></canvas>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="nav-logo">&lt;Mahipal /&gt;</a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☀️</button>
+        <a href="Mahipal_Epic_Resume.pdf" download class="btn btn-primary btn-sm">Resume</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="home">
+    <div class="container hero-inner">
+      <div class="hero-text reveal">
+        <span class="hero-greet">👋 Hello, I'm</span>
+        <h1>Mahipal <span class="gradient-text">Puri</span></h1>
+        <p class="hero-role">I build as a <span id="typed" class="typed"></span><span class="cursor"></span></p>
+        <p class="hero-bio">
+          Dedicated Computer Science Engineering student with expertise in full-stack web development and machine
+          learning. Passionate about building innovative digital solutions and solving real-world problems through
+          technology.
+        </p>
+        <div class="hero-chips">
+          <span class="chip">📍 Rajasthan, India</span>
+          <span class="chip">🎓 B.Tech CSE — CGPA 7.89</span>
+          <span class="chip">💼 Open to Opportunities</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="Mahipal_Epic_Resume.pdf" download class="btn btn-ghost">⬇ Download Resume</a>
+          <a href="#contact" class="btn btn-ghost">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal delay-1">
+        <canvas id="hero-3d" aria-hidden="true"></canvas>
+        <div class="avatar-disc" aria-hidden="true">MP</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title reveal">About Me</h2>
+      <p class="section-subtitle reveal delay-1">A quick introduction</p>
+
+      <div class="glass about-card reveal delay-2">
+        <div class="about-photo">
+          <img src="assets/images/profile.jpg" alt="Mahipal Puri" loading="lazy" />
+        </div>
+        <div class="about-text">
+          <p>
+            I'm a <strong>Computer Science Engineering student</strong> at Jodhpur Institute of Engineering &amp;
+            Technology with a strong interest in
+            <strong>Full Stack Development</strong>, <strong>Artificial Intelligence</strong>, and <strong>Software
+              Engineering</strong>.
+          </p>
+          <p>
+            I have practical experience through my <strong>MERN Stack internship at Netparam Technologies Pvt.
+              Ltd.</strong>, where I worked on real-world web applications and modern development technologies.
+          </p>
+          <p>
+            My goal is to build <strong>scalable applications</strong> that solve meaningful problems while continuously
+            improving my technical skills.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title reveal">Education</h2>
+      <p class="section-subtitle reveal delay-1">Where I'm learning the craft</p>
+
+      <div class="edu-grid">
+        <div class="glass edu-card reveal">
+          <div class="edu-icon">🎓</div>
+          <h3>Bachelor of Technology — CSE</h3>
+          <p class="edu-sub">Jodhpur Institute of Engineering &amp; Technology</p>
+          <div class="edu-meta">
+            <span>CGPA: 7.89</span>
+            <span>2023 — Present</span>
+          </div>
+        </div>
+
+        <div class="glass edu-card reveal delay-1">
+          <div class="edu-icon">📘</div>
+          <h3>Senior Secondary (Class XII)</h3>
+          <p class="edu-sub">Kalpana Chawla International School, Nagaur</p>
+          <div class="edu-meta">
+            <span>Percentage: 69.8%</span>
+            <span>2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title reveal">Experience</h2>
+      <p class="section-subtitle reveal delay-1">Where I've shipped real work</p>
+
+      <div class="glass exp-card reveal delay-2">
+        <div class="exp-logo">N</div>
+        <div>
+          <div class="exp-head">
+            <h3>MERN Stack Developer Intern</h3>
+            <span class="exp-date">May 2025 — July 2025</span>
+          </div>
+          <p class="exp-company">Netparam Technologies Pvt. Ltd. · Jaipur, India</p>
+          <ul>
+            <li>Worked across the full MERN stack: MongoDB, Express.js, React.js, Node.js.</li>
+            <li>Developed E-commerce web application modules end-to-end.</li>
+            <li>Collaborated with the development team on feature delivery and code reviews.</li>
+            <li>Learned modern software development workflows, version control and deployment.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title reveal">Skills</h2>
+      <p class="section-subtitle reveal delay-1">My technical toolbox</p>
+
+      <!-- Stats strip -->
+      <div class="skill-stats reveal delay-1">
+        <div class="skill-stat">
+          <div class="skill-stat-value"><span class="counter" data-target="19">0</span><span class="plus">+</span></div>
+          <div class="skill-stat-label">Technologies</div>
+        </div>
+        <div class="skill-stat">
+          <div class="skill-stat-value"><span class="counter" data-target="4">0</span></div>
+          <div class="skill-stat-label">Categories</div>
+        </div>
+        <div class="skill-stat">
+          <div class="skill-stat-value"><span class="counter" data-target="3">0</span><span class="plus">+</span></div>
+          <div class="skill-stat-label">Years Learning</div>
+        </div>
+        <div class="skill-stat">
+          <div class="skill-stat-value"><span class="counter" data-target="10">0</span><span class="plus">+</span></div>
+          <div class="skill-stat-label">Projects Built</div>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="glass skill-group reveal" data-accent="cyan">
+          <div class="skill-aura"></div>
+          <div class="skill-glow"></div>
+          <h3>
+            <span class="skill-cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </span>
+            Programming Languages
+          </h3>
+          <div class="skill-chips">
+            <span class="skill-chip" style="--brand:#f89820"><i class="devicon-java-plain"></i>Java</span>
+            <span class="skill-chip" style="--brand:#3776ab"><i class="devicon-python-plain colored"></i>Python</span>
+            <span class="skill-chip" style="--brand:#f7df1e"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+          </div>
+        </div>
+
+        <div class="glass skill-group reveal delay-1" data-accent="purple">
+          <div class="skill-aura"></div>
+          <div class="skill-glow"></div>
+          <h3>
+            <span class="skill-cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </span>
+            Web Development
+          </h3>
+          <div class="skill-chips">
+            <span class="skill-chip" style="--brand:#e34f26"><i class="devicon-html5-plain colored"></i>HTML5</span>
+            <span class="skill-chip" style="--brand:#1572b6"><i class="devicon-css3-plain colored"></i>CSS3</span>
+            <span class="skill-chip" style="--brand:#f7df1e"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+            <span class="skill-chip" style="--brand:#61dafb"><i class="devicon-react-original colored"></i>React.js</span>
+            <span class="skill-chip" style="--brand:#8cc84b"><i class="devicon-nodejs-plain colored"></i>Node.js</span>
+            <span class="skill-chip" style="--brand:#ffffff"><i class="devicon-express-original"></i>Express.js</span>
+            <span class="skill-chip" style="--brand:#47a248"><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
+          </div>
+        </div>
+
+        <div class="glass skill-group reveal delay-2" data-accent="pink">
+          <div class="skill-aura"></div>
+          <div class="skill-glow"></div>
+          <h3>
+            <span class="skill-cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0-2 7.5A4 4 0 0 0 8 22h8a4 4 0 0 0 2-7.5A4 4 0 0 0 16 7V6a4 4 0 0 0-4-4z"></path><path d="M9 12h6"></path><path d="M12 9v6"></path></svg>
+            </span>
+            AI &amp; Data Science
+          </h3>
+          <div class="skill-chips">
+            <span class="skill-chip" style="--brand:#4dabcf"><i class="devicon-numpy-original colored"></i>NumPy</span>
+            <span class="skill-chip" style="--brand:#150458"><i class="devicon-pandas-original colored"></i>Pandas</span>
+            <span class="skill-chip" style="--brand:#ff6f00"><i class="devicon-tensorflow-original colored"></i>Machine Learning</span>
+          </div>
+        </div>
+
+        <div class="glass skill-group reveal delay-3" data-accent="orange">
+          <div class="skill-aura"></div>
+          <div class="skill-glow"></div>
+          <h3>
+            <span class="skill-cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </span>
+            Tools &amp; Platforms
+          </h3>
+          <div class="skill-chips">
+            <span class="skill-chip" style="--brand:#f05032"><i class="devicon-git-plain colored"></i>Git &amp; GitHub</span>
+            <span class="skill-chip" style="--brand:#007acc"><i class="devicon-vscode-plain colored"></i>VS Code</span>
+            <span class="skill-chip" style="--brand:#3ddc84"><i class="devicon-androidstudio-plain colored"></i>Android Studio</span>
+            <span class="skill-chip" style="--brand:#4479a1"><i class="devicon-mysql-plain colored"></i>SQL</span>
+            <span class="skill-chip" style="--brand:#217346"><svg class="skill-chip-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-5 4h2l1.5 2L13 13h2l-2.5 3.5L15 20h-2l-1.5-2L10 20H8l2.5-3.5L8 13z"></path></svg>Excel</span>
+            <span class="skill-chip" style="--brand:#00c4cc"><svg class="skill-chip-svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4" fill="#0a0a0a"></circle></svg>Canva</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass top-skills reveal">
+        <h3>Top Skills — Proficiency</h3>
+        <div class="ring-grid">
+          <div class="ring-card" style="--ring-color:#f7df1e" data-level="85">
+            <svg class="ring-svg" viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="rg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fde047"/><stop offset="100%" stop-color="#f59e0b"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fg" cx="60" cy="60" r="52" stroke="url(#rg1)"/>
+            </svg>
+            <div class="ring-inner">
+              <i class="devicon-javascript-plain colored ring-icon"></i>
+              <div class="ring-pct"><span class="counter" data-target="85">0</span>%</div>
+            </div>
+            <div class="ring-name">JavaScript</div>
+          </div>
+
+          <div class="ring-card" style="--ring-color:#61dafb" data-level="80">
+            <svg class="ring-svg" viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="rg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fg" cx="60" cy="60" r="52" stroke="url(#rg2)"/>
+            </svg>
+            <div class="ring-inner">
+              <i class="devicon-react-original colored ring-icon"></i>
+              <div class="ring-pct"><span class="counter" data-target="80">0</span>%</div>
+            </div>
+            <div class="ring-name">React.js</div>
+          </div>
+
+          <div class="ring-card" style="--ring-color:#8cc84b" data-level="75">
+            <svg class="ring-svg" viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="rg3" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#a3e635"/><stop offset="100%" stop-color="#16a34a"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fg" cx="60" cy="60" r="52" stroke="url(#rg3)"/>
+            </svg>
+            <div class="ring-inner">
+              <i class="devicon-nodejs-plain colored ring-icon"></i>
+              <div class="ring-pct"><span class="counter" data-target="75">0</span>%</div>
+            </div>
+            <div class="ring-name">Node / Express</div>
+          </div>
+
+          <div class="ring-card" style="--ring-color:#47a248" data-level="72">
+            <svg class="ring-svg" viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="rg4" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#86efac"/><stop offset="100%" stop-color="#15803d"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fg" cx="60" cy="60" r="52" stroke="url(#rg4)"/>
+            </svg>
+            <div class="ring-inner">
+              <i class="devicon-mongodb-plain colored ring-icon"></i>
+              <div class="ring-pct"><span class="counter" data-target="72">0</span>%</div>
+            </div>
+            <div class="ring-name">MongoDB</div>
+          </div>
+
+          <div class="ring-card" style="--ring-color:#3776ab" data-level="78">
+            <svg class="ring-svg" viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="rg5" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#1d4ed8"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fg" cx="60" cy="60" r="52" stroke="url(#rg5)"/>
+            </svg>
+            <div class="ring-inner">
+              <i class="devicon-python-plain colored ring-icon"></i>
+              <div class="ring-pct"><span class="counter" data-target="78">0</span>%</div>
+            </div>
+            <div class="ring-name">Python</div>
+          </div>
+
+          <div class="ring-card" style="--ring-color:#f89820" data-level="70">
+            <svg class="ring-svg" viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="rg6" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fdba74"/><stop offset="100%" stop-color="#c2410c"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fg" cx="60" cy="60" r="52" stroke="url(#rg6)"/>
+            </svg>
+            <div class="ring-inner">
+              <i class="devicon-java-plain ring-icon" style="color:#f89820"></i>
+              <div class="ring-pct"><span class="counter" data-target="70">0</span>%</div>
+            </div>
+            <div class="ring-name">Java</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Infinite marquee ticker -->
+      <div class="tech-ticker reveal">
+        <div class="tech-ticker-track">
+          <div class="tech-ticker-row">
+            <span class="tech-pill"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+            <span class="tech-pill"><i class="devicon-react-original colored"></i>React</span>
+            <span class="tech-pill"><i class="devicon-nodejs-plain colored"></i>Node.js</span>
+            <span class="tech-pill"><i class="devicon-express-original"></i>Express</span>
+            <span class="tech-pill"><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
+            <span class="tech-pill"><i class="devicon-python-plain colored"></i>Python</span>
+            <span class="tech-pill"><i class="devicon-java-plain" style="color:#f89820"></i>Java</span>
+            <span class="tech-pill"><i class="devicon-html5-plain colored"></i>HTML5</span>
+            <span class="tech-pill"><i class="devicon-css3-plain colored"></i>CSS3</span>
+            <span class="tech-pill"><i class="devicon-git-plain colored"></i>Git</span>
+            <span class="tech-pill"><i class="devicon-vscode-plain colored"></i>VS Code</span>
+            <span class="tech-pill"><i class="devicon-mysql-plain colored"></i>SQL</span>
+            <span class="tech-pill"><i class="devicon-numpy-original colored"></i>NumPy</span>
+            <span class="tech-pill"><i class="devicon-pandas-original colored"></i>Pandas</span>
+          </div>
+          <div class="tech-ticker-row" aria-hidden="true">
+            <span class="tech-pill"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+            <span class="tech-pill"><i class="devicon-react-original colored"></i>React</span>
+            <span class="tech-pill"><i class="devicon-nodejs-plain colored"></i>Node.js</span>
+            <span class="tech-pill"><i class="devicon-express-original"></i>Express</span>
+            <span class="tech-pill"><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
+            <span class="tech-pill"><i class="devicon-python-plain colored"></i>Python</span>
+            <span class="tech-pill"><i class="devicon-java-plain" style="color:#f89820"></i>Java</span>
+            <span class="tech-pill"><i class="devicon-html5-plain colored"></i>HTML5</span>
+            <span class="tech-pill"><i class="devicon-css3-plain colored"></i>CSS3</span>
+            <span class="tech-pill"><i class="devicon-git-plain colored"></i>Git</span>
+            <span class="tech-pill"><i class="devicon-vscode-plain colored"></i>VS Code</span>
+            <span class="tech-pill"><i class="devicon-mysql-plain colored"></i>SQL</span>
+            <span class="tech-pill"><i class="devicon-numpy-original colored"></i>NumPy</span>
+            <span class="tech-pill"><i class="devicon-pandas-original colored"></i>Pandas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title reveal">Projects</h2>
+      <p class="section-subtitle reveal delay-1">A selection of things I've built</p>
+
+      <div class="filter-bar reveal delay-2">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="ai">AI / ML</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="systems">Systems</button>
+        <button class="filter-btn" data-filter="security">Security</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- 1. PetVerse -->
+        <article class="glass project-card reveal" data-category="web">
+          <div class="project-thumb t-rose">PV</div>
+          <div class="project-body">
+            <span class="project-tag">Web · Full-Stack</span>
+            <h3>PetVerse</h3>
+            <p>A full-stack pet-care platform connecting pet owners with services, products, and a community — built
+              with a modern TypeScript stack and deployed on Vercel.</p>
+            <div class="tech-row">
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/PetVerse" target="_blank"
+                rel="noopener">GitHub →</a>
+              <a class="project-link demo" href="https://pet-verse-6ma8.vercel.app" target="_blank" rel="noopener">Live
+                Demo ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. RecruitPro -->
+        <article class="glass project-card reveal delay-1" data-category="web">
+          <div class="project-thumb t-violet">RP</div>
+          <div class="project-body">
+            <span class="project-tag">Web · SaaS</span>
+            <h3>RecruitPro</h3>
+            <p>A recruitment management platform that streamlines job postings, candidate pipelines and HR workflows.
+              Designed with a clean dashboard UI.</p>
+            <div class="tech-row">
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Tailwind</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/RecruitPro" target="_blank"
+                rel="noopener">GitHub →</a>
+              <a class="project-link demo" href="https://recruit-pro-theta.vercel.app" target="_blank"
+                rel="noopener">Live Demo ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. News-Reader-AI -->
+        <article class="glass project-card reveal delay-2" data-category="ai">
+          <div class="project-thumb t-sky">AI</div>
+          <div class="project-body">
+            <span class="project-tag">AI · Web</span>
+            <h3>News Reader AI</h3>
+            <p>A polished, demoable frontend for an AI-powered news reader — articles, users, AI responses and
+              notifications mocked locally, with voice playback via the Web Speech API.</p>
+            <div class="tech-row">
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Web Speech API</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/News-Reader-AI" target="_blank"
+                rel="noopener">GitHub →</a>
+              <a class="project-link demo" href="https://news-reader-ai-pi.vercel.app" target="_blank"
+                rel="noopener">Live Demo ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Neyakeditor -->
+        <article class="glass project-card reveal delay-3" data-category="web">
+          <div class="project-thumb t-teal">NE</div>
+          <div class="project-body">
+            <span class="project-tag">Web · Tool</span>
+            <h3>Neyak Editor</h3>
+            <p>A browser-based code/text editor with syntax highlighting, theming and a smooth writing experience. Built
+              for speed and zero setup.</p>
+            <div class="tech-row">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/Neyakeditor" target="_blank"
+                rel="noopener">GitHub →</a>
+              <a class="project-link demo" href="https://neyakeditor.vercel.app" target="_blank" rel="noopener">Live
+                Demo ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Neyakanime -->
+        <article class="glass project-card reveal" data-category="web">
+          <div class="project-thumb t-pink">NA</div>
+          <div class="project-body">
+            <span class="project-tag">Web · Entertainment</span>
+            <h3>Neyak Anime</h3>
+            <p>Anime discovery and browsing site that pulls catalog data and presents trending titles, posters and
+              details in a responsive grid.</p>
+            <div class="tech-row">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">REST API</span>
+              <span class="tech-tag">Responsive</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/Neyakanime" target="_blank"
+                rel="noopener">GitHub →</a>
+              <a class="project-link demo" href="https://neyakanime.vercel.app" target="_blank" rel="noopener">Live Demo
+                ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. XRayVision -->
+        <article class="glass project-card reveal delay-1" data-category="ai">
+          <div class="project-thumb t-blue">XR</div>
+          <div class="project-body">
+            <span class="project-tag">AI · Healthcare</span>
+            <h3>X-Ray Vision</h3>
+            <p>Web tool for uploading and analyzing X-ray images with a clean clinical UI — exploring computer-vision
+              concepts for medical imaging.</p>
+            <div class="tech-row">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Computer Vision</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/XRayVision-main" target="_blank"
+                rel="noopener">GitHub →</a>
+              <a class="project-link demo" href="https://x-ray-vision-main.vercel.app" target="_blank"
+                rel="noopener">Live Demo ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. Digital Hammer Event -->
+        <article class="glass project-card reveal delay-2" data-category="web">
+          <div class="project-thumb t-amber">DH</div>
+          <div class="project-body">
+            <span class="project-tag">Web · Landing Page</span>
+            <h3>Digital Hammer Event</h3>
+            <p>Event landing page with hero, schedule and registration sections. Pixel-tuned typography and smooth
+              scroll animations.</p>
+            <div class="tech-row">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/Diditalhammer-Event" target="_blank"
+                rel="noopener">GitHub →</a>
+              <a class="project-link demo" href="https://diditalhammer-event.vercel.app" target="_blank"
+                rel="noopener">Live Demo ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Holosketech -->
+        <article class="glass project-card reveal delay-3" data-category="web">
+          <div class="project-thumb t-indigo">HT</div>
+          <div class="project-body">
+            <span class="project-tag">Web · Frontend</span>
+            <h3>Holosketech</h3>
+            <p>Modern marketing/portfolio frontend with motion design, glassmorphism cards and section-based
+              storytelling.</p>
+            <div class="tech-row">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/holosketech" target="_blank"
+                rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. Health Prediction System -->
+        <article class="glass project-card reveal" data-category="ai">
+          <div class="project-thumb t-green">HP</div>
+          <div class="project-body">
+            <span class="project-tag">ML · Healthcare</span>
+            <h3>Health Prediction System</h3>
+            <p>Machine-learning notebooks that predict the likelihood of common diseases from symptom and biometric
+              inputs using classification models.</p>
+            <div class="tech-row">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Jupyter</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">scikit-learn</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/health-prediction-system" target="_blank"
+                rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. Anime Recommendation -->
+        <article class="glass project-card reveal delay-1" data-category="ai">
+          <div class="project-thumb t-orange">AR</div>
+          <div class="project-body">
+            <span class="project-tag">ML · Recommender</span>
+            <h3>Anime Recommendation System</h3>
+            <p>Recommender system that suggests anime based on user preferences, ratings and similarity scoring using
+              collaborative-filtering techniques.</p>
+            <div class="tech-row">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">ML</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/anime-recommendation-and-system"
+                target="_blank" rel="noopener">GitHub →</a>
+              <a class="project-link demo" href="https://anime-recommendation-and-system.vercel.app" target="_blank"
+                rel="noopener">Live Demo ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11. BMI Calculator -->
+        <article class="glass project-card reveal delay-2" data-category="mobile">
+          <div class="project-thumb t-lime">BMI</div>
+          <div class="project-body">
+            <span class="project-tag">Mobile · Android</span>
+            <h3>BMI Calculator</h3>
+            <p>Android application for calculating Body Mass Index with a modern UI and API integration that provides
+              users with quick health insights.</p>
+            <div class="tech-row">
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">Android Studio</span>
+              <span class="tech-tag">REST API</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/BMI-calculator" target="_blank"
+                rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12. Netakexpands -->
+        <article class="glass project-card reveal delay-3" data-category="mobile">
+          <div class="project-thumb t-purple">NX</div>
+          <div class="project-body">
+            <span class="project-tag">Mobile · Android</span>
+            <h3>Netak Expands</h3>
+            <p>Android application built in Kotlin exploring modern Android architecture, UI components and state
+              management patterns.</p>
+            <div class="tech-row">
+              <span class="tech-tag">Kotlin</span>
+              <span class="tech-tag">Android</span>
+              <span class="tech-tag">Jetpack</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/Netakexpands" target="_blank"
+                rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 13. Client-Server -->
+        <article class="glass project-card reveal" data-category="systems">
+          <div class="project-thumb t-teal">CS</div>
+          <div class="project-body">
+            <span class="project-tag">Systems · Networking</span>
+            <h3>Client-Server Architecture</h3>
+            <p>Java implementation of a client-server communication system demonstrating socket programming, request
+              handling and protocol design.</p>
+            <div class="tech-row">
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">Sockets</span>
+              <span class="tech-tag">Networking</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/Client-Server" target="_blank"
+                rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 14. Parallel File Search -->
+        <article class="glass project-card reveal delay-1" data-category="systems">
+          <div class="project-thumb t-blue">PFS</div>
+          <div class="project-body">
+            <span class="project-tag">Systems · Concurrency</span>
+            <h3>Parallel File Search System</h3>
+            <p>Multi-threaded file search engine that splits work across worker threads to scan large directory trees
+              with significant speed-ups.</p>
+            <div class="tech-row">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Concurrency</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/Parallel-File-Search-System" target="_blank"
+                rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 15. Cipher Files -->
+        <article class="glass project-card reveal delay-2" data-category="security">
+          <div class="project-thumb t-rose">CF</div>
+          <div class="project-body">
+            <span class="project-tag">Security · Tooling</span>
+            <h3>Cipher Files</h3>
+            <p>Python utility for encrypting and decrypting files with symmetric ciphers — a hands-on exploration of
+              cryptography fundamentals.</p>
+            <div class="tech-row">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Cryptography</span>
+              <span class="tech-tag">CLI</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Mahipal-puri/Cipher-Files" target="_blank"
+                rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="reveal" style="text-align:center;margin-top:36px;color:var(--muted);font-size:0.95rem;">
+        Want to see more? Visit my
+        <a href="https://github.com/Mahipal-puri" target="_blank" rel="noopener"
+          style="color:var(--accent);font-weight:600;">GitHub profile →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <section id="achievements">
+    <div class="container">
+      <h2 class="section-title reveal">Achievements &amp; Certifications</h2>
+      <p class="section-subtitle reveal delay-1">Continuous learning milestones</p>
+
+      <div class="glass cert-card reveal delay-2">
+        <ul class="cert-list">
+          <li><span class="cert-icon">⚡</span> Secretary, IEEE — Jodhpur Institute of Engineering &amp; Technology</li>
+          <li><span class="cert-icon">📜</span> C Programming Certification</li>
+          <li><span class="cert-icon">🧠</span> Understanding Body Language Certification</li>
+          <li><span class="cert-icon">💼</span> MERN Stack Internship Experience</li>
+          <li><span class="cert-icon">🏆</span> Multiple Academic &amp; Technical Projects</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title reveal">Contact</h2>
+      <p class="section-subtitle reveal delay-1">Let's connect and discuss opportunities, projects or collaborations.
+      </p>
+
+      <div class="contact-grid">
+        <div class="glass contact-info reveal">
+          <h3>Get in touch</h3>
+          <p>Have something interesting in mind? My inbox is always open.</p>
+
+          <a class="contact-row" href="mailto:mahipalpuri21@gmail.com">
+            <span class="ci-icon">📧</span>
+            <span>
+              <span class="ci-label">Email</span><br />
+              <span class="ci-value">mahipalpuri21@gmail.com</span>
+            </span>
+          </a>
+
+          <a class="contact-row" href="tel:+919785146279">
+            <span class="ci-icon">📱</span>
+            <span>
+              <span class="ci-label">Phone</span><br />
+              <span class="ci-value">+91 97851 46279</span>
+            </span>
+          </a>
+
+          <a class="contact-row" href="https://linkedin.com/in/mahipal-puri-822ba4294" target="_blank" rel="noopener">
+            <span class="ci-icon">💼</span>
+            <span>
+              <span class="ci-label">LinkedIn</span><br />
+              <span class="ci-value">linkedin.com/in/mahipal-puri-822ba4294</span>
+            </span>
+          </a>
+
+          <a class="contact-row" href="https://github.com/Mahipal-puri" target="_blank" rel="noopener">
+            <span class="ci-icon">💻</span>
+            <span>
+              <span class="ci-label">GitHub</span><br />
+              <span class="ci-value">github.com/Mahipal-puri</span>
+            </span>
+          </a>
+        </div>
+
+        <form class="glass contact-form reveal delay-1" id="contact-form" autocomplete="on">
+          <h3>Send a message</h3>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell me a bit about your idea..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message →</button>
+          <div class="form-status" id="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Mahipal Puri — Built with HTML, CSS &amp; JavaScript.</span>
+      <div class="social-row">
+        <a href="mailto:mahipalpuri21@gmail.com" aria-label="Email">📧</a>
+        <a href="https://linkedin.com/in/mahipal-puri-822ba4294" target="_blank" rel="noopener"
+          aria-label="LinkedIn">in</a>
+        <a href="https://github.com/Mahipal-puri" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="assets/js/three-scene.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
