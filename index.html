@@ -19,6 +19,16 @@
 
 <body>
 
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
+
+  <!-- ============ CUSTOM CURSOR ============ -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ============ GRAIN OVERLAY ============ -->
+  <div class="grain" aria-hidden="true"></div>
+
   <!-- ============ 3D PARTICLE BACKGROUND ============ -->
   <canvas id="bg-particles" aria-hidden="true"></canvas>
 
@@ -51,7 +61,7 @@
     <div class="container hero-inner">
       <div class="hero-text reveal">
         <span class="hero-greet">👋 Hello, I'm</span>
-        <h1>Mahipal <span class="gradient-text">Puri</span></h1>
+        <h1 class="hero-title split-chars">Mahipal <span class="gradient-text">Puri</span></h1>
         <p class="hero-role">I build as a <span id="typed" class="typed"></span><span class="cursor"></span></p>
         <p class="hero-bio">
           Dedicated Computer Science Engineering student with expertise in full-stack web development and machine
@@ -64,9 +74,9 @@
           <span class="chip">💼 Open to Opportunities</span>
         </div>
         <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">View Projects →</a>
-          <a href="Mahipal_Epic_Resume.pdf" download class="btn btn-ghost">⬇ Download Resume</a>
-          <a href="#contact" class="btn btn-ghost">Contact Me</a>
+          <a href="#projects" class="btn btn-primary" data-magnetic>View Projects →</a>
+          <a href="Mahipal_Epic_Resume.pdf" download class="btn btn-ghost" data-magnetic>⬇ Download Resume</a>
+          <a href="#contact" class="btn btn-ghost" data-magnetic>Contact Me</a>
         </div>
       </div>
       <div class="hero-visual reveal delay-1">
@@ -79,7 +89,7 @@
   <!-- ============ ABOUT ============ -->
   <section id="about">
     <div class="container">
-      <h2 class="section-title reveal">About Me</h2>
+      <h2 class="section-title reveal split-words">About Me</h2>
       <p class="section-subtitle reveal delay-1">A quick introduction</p>
 
       <div class="glass about-card reveal delay-2">
@@ -109,7 +119,7 @@
   <!-- ============ EDUCATION ============ -->
   <section id="education">
     <div class="container">
-      <h2 class="section-title reveal">Education</h2>
+      <h2 class="section-title reveal split-words">Education</h2>
       <p class="section-subtitle reveal delay-1">Where I'm learning the craft</p>
 
       <div class="edu-grid">
@@ -139,7 +149,7 @@
   <!-- ============ EXPERIENCE ============ -->
   <section id="experience">
     <div class="container">
-      <h2 class="section-title reveal">Experience</h2>
+      <h2 class="section-title reveal split-words">Experience</h2>
       <p class="section-subtitle reveal delay-1">Where I've shipped real work</p>
 
       <div class="glass exp-card reveal delay-2">
@@ -164,7 +174,7 @@
   <!-- ============ SKILLS ============ -->
   <section id="skills">
     <div class="container">
-      <h2 class="section-title reveal">Skills</h2>
+      <h2 class="section-title reveal split-words">Skills</h2>
       <p class="section-subtitle reveal delay-1">My technical toolbox</p>
 
       <!-- Stats strip -->
@@ -410,7 +420,7 @@
   <!-- ============ PROJECTS ============ -->
   <section id="projects">
     <div class="container">
-      <h2 class="section-title reveal">Projects</h2>
+      <h2 class="section-title reveal split-words">Projects</h2>
       <p class="section-subtitle reveal delay-1">A selection of things I've built</p>
 
       <div class="filter-bar reveal delay-2">
@@ -757,7 +767,7 @@
   <!-- ============ ACHIEVEMENTS ============ -->
   <section id="achievements">
     <div class="container">
-      <h2 class="section-title reveal">Achievements &amp; Certifications</h2>
+      <h2 class="section-title reveal split-words">Achievements &amp; Certifications</h2>
       <p class="section-subtitle reveal delay-1">Continuous learning milestones</p>
 
       <div class="glass cert-card reveal delay-2">
@@ -775,7 +785,7 @@
   <!-- ============ CONTACT ============ -->
   <section id="contact">
     <div class="container">
-      <h2 class="section-title reveal">Contact</h2>
+      <h2 class="section-title reveal split-words">Contact</h2>
       <p class="section-subtitle reveal delay-1">Let's connect and discuss opportunities, projects or collaborations.
       </p>
 

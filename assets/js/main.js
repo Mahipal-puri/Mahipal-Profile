@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initRings();
   initMagneticChips();
+  initScrollProgress();
+  initCustomCursor();
+  initSplitText();
+  initMagneticButtons();
   document.getElementById('year').textContent = new Date().getFullYear();
 });
 
@@ -343,6 +347,168 @@ function initMagneticChips() {
     });
     chip.addEventListener('mouseleave', () => {
       chip.style.transform = '';
+    });
+  });
+}
+
+/* ---------- Scroll progress bar ---------- */
+function initScrollProgress() {
+  const bar = document.querySelector('.scroll-progress-bar');
+  if (!bar) return;
+  let ticking = false;
+  const update = () => {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
+    bar.style.width = (scrolled * 100).toFixed(2) + '%';
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
+}
+
+/* ---------- Custom cursor (smooth follower + magnetic states) ---------- */
+function initCustomCursor() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+  if (!dot || !ring) return;
+
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  let dx = mx, dy = my; // dot follows immediately
+  let rx = mx, ry = my; // ring lerps with delay
+
+  document.body.classList.add('cursor-active');
+
+  window.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+  }, { passive: true });
+
+  window.addEventListener('mouseout', (e) => {
+    if (!e.relatedTarget) document.body.classList.remove('cursor-active');
+  });
+  window.addEventListener('mouseover', () => document.body.classList.add('cursor-active'));
+
+  const loop = () => {
+    dx = mx; dy = my;
+    rx += (mx - rx) * 0.18;
+    ry += (my - ry) * 0.18;
+    dot.style.transform = `translate(${dx}px, ${dy}px) translate(-50%, -50%)`;
+    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+    requestAnimationFrame(loop);
+  };
+  loop();
+
+  // State changes on interactive elements
+  const linkSel = 'a, button, [data-magnetic], .skill-chip, .ring-card, .tech-pill, .project-card, .filter-btn';
+  document.addEventListener('mouseover', (e) => {
+    const link = e.target.closest(linkSel);
+    const text = e.target.closest('p, h1, h2, h3, h4, input, textarea, li');
+    document.body.classList.toggle('cursor-link', !!link);
+    document.body.classList.toggle('cursor-text', !!text && !link);
+  });
+  document.addEventListener('mouseout', (e) => {
+    if (!e.relatedTarget) {
+      document.body.classList.remove('cursor-link', 'cursor-text');
+    }
+  });
+}
+
+/* ---------- Split text: hero chars + section-title words ---------- */
+function initSplitText() {
+  // Hero title — split into characters
+  document.querySelectorAll('.split-chars').forEach((el) => {
+    splitChars(el);
+    // Reveal on next frame (after fonts/layout settle)
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-revealed')));
+  });
+
+  // Section titles — split into words, reveal when in viewport
+  const wordEls = document.querySelectorAll('.split-words');
+  wordEls.forEach((el) => splitWords(el));
+  // The existing reveal observer already toggles `.in-view`; word reveal is hooked via CSS
+}
+
+function splitChars(el) {
+  const walk = (node) => {
+    const out = [];
+    node.childNodes.forEach((n) => {
+      if (n.nodeType === Node.TEXT_NODE) {
+        const text = n.textContent;
+        for (const ch of text) {
+          const span = document.createElement('span');
+          span.className = ch === ' ' ? 'char space' : 'char';
+          if (ch !== ' ') span.textContent = ch;
+          out.push(span);
+        }
+      } else if (n.nodeType === Node.ELEMENT_NODE) {
+        const wrapper = n.cloneNode(false);
+        const children = walk(n);
+        children.forEach((c) => wrapper.appendChild(c));
+        out.push(wrapper);
+      }
+    });
+    return out;
+  };
+  const newChildren = walk(el);
+  el.textContent = '';
+  newChildren.forEach((c) => el.appendChild(c));
+
+  // Stagger transition-delay per char (sequential index across nested spans)
+  const chars = el.querySelectorAll('.char');
+  chars.forEach((c, i) => {
+    c.style.transitionDelay = (i * 45) + 'ms';
+  });
+}
+
+function splitWords(el) {
+  // Preserve any inner HTML (e.g., the &amp; in "Achievements & Certifications") by working on text content only
+  const text = el.textContent.trim();
+  el.textContent = '';
+  const words = text.split(/\s+/);
+  words.forEach((w, i) => {
+    const outer = document.createElement('span');
+    outer.className = 'word';
+    const inner = document.createElement('span');
+    inner.className = 'word-inner';
+    inner.textContent = w;
+    inner.style.transitionDelay = (i * 80) + 'ms';
+    outer.appendChild(inner);
+    el.appendChild(outer);
+  });
+}
+
+/* ---------- Magnetic buttons ---------- */
+function initMagneticButtons() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const STRENGTH = 0.25;
+  document.querySelectorAll('[data-magnetic]').forEach((btn) => {
+    let rafId = null;
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) * STRENGTH;
+      const dy = (e.clientY - cy) * STRENGTH;
+      const mxPct = ((e.clientX - rect.left) / rect.width) * 100;
+      const myPct = ((e.clientY - rect.top) / rect.height) * 100;
+
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        btn.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`;
+        btn.style.setProperty('--mx', mxPct + '%');
+        btn.style.setProperty('--my', myPct + '%');
+      });
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+      btn.style.removeProperty('--mx');
+      btn.style.removeProperty('--my');
     });
   });
 }

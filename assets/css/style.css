@@ -19,6 +19,19 @@
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
   --radius: 18px;
   --radius-sm: 12px;
+
+  /* === Motion design tokens === */
+  --dur-fast: 180ms;
+  --dur-norm: 320ms;
+  --dur-slow: 600ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* === Fluid type scale (clamp) === */
+  --fs-hero: clamp(2.8rem, 1.8rem + 5vw, 5.5rem);
+  --fs-section: clamp(2rem, 1.4rem + 2.5vw, 3rem);
+  --fs-lead: clamp(1.05rem, 0.95rem + 0.5vw, 1.25rem);
 }
 
 html[data-theme="light"] {
@@ -1323,4 +1336,176 @@ html[data-theme="light"] .navbar { background: rgba(245, 247, 251, 0.7); }
     transition-duration: 0.01ms !important;
   }
   body::before, body::after { animation: none; }
+}
+
+/* =====================================================
+   Modern Design Layer — added on top of the base styles
+   ===================================================== */
+
+/* === Scroll progress bar === */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  z-index: 200;
+  background: rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--gradient);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 60%, transparent);
+  transform-origin: left center;
+  transition: width 80ms linear;
+}
+
+/* === Custom cursor (desktop only) === */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform, width, height, opacity;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cursor-dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 80%, transparent);
+  transition: width 0.35s var(--ease-spring), height 0.35s var(--ease-spring), border-color 0.3s, background 0.3s, opacity 0.3s;
+}
+.cursor-active .cursor-dot,
+.cursor-active .cursor-ring { opacity: 1; }
+
+/* Cursor states on hover */
+.cursor-link .cursor-ring {
+  width: 64px; height: 64px;
+  border-color: color-mix(in srgb, var(--accent-2) 80%, transparent);
+  background: color-mix(in srgb, var(--accent-2) 8%, transparent);
+}
+.cursor-text .cursor-ring {
+  width: 8px; height: 8px;
+  background: var(--accent);
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* === SVG noise grain overlay === */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grainShift 8s steps(8) infinite;
+}
+@keyframes grainShift {
+  0%,100% { transform: translate(0,0); }
+  10%     { transform: translate(-3%,-2%); }
+  30%     { transform: translate(2%,-4%); }
+  50%     { transform: translate(-1%,3%); }
+  70%     { transform: translate(3%,1%); }
+  90%     { transform: translate(-2%,2%); }
+}
+
+/* === Fluid typography overrides === */
+.hero-title { font-size: var(--fs-hero); line-height: 1.05; letter-spacing: -0.02em; }
+.section-title { font-size: var(--fs-section); letter-spacing: -0.015em; }
+.hero-bio { font-size: var(--fs-lead); }
+
+/* === Hero title — letter-by-letter reveal === */
+.hero-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.6em) rotateX(-40deg);
+  transform-origin: 50% 100%;
+  transition: opacity 0.7s var(--ease-out), transform 0.9s var(--ease-spring);
+}
+.hero-title.is-revealed .char {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+.hero-title .char.space { width: 0.3em; }
+/* Re-apply gradient clip per-char so split letters still inherit the gradient */
+.hero-title .gradient-text .char {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* === Section title — word stagger reveal with blur === */
+.split-words .word {
+  display: inline-block;
+  margin-right: 0.25em;
+}
+.split-words .word .word-inner {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em);
+  filter: blur(8px);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out),
+    filter 0.7s var(--ease-out);
+}
+.split-words.in-view .word .word-inner {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+/* Section title — re-apply gradient clip per word-inner so split text stays gradient */
+.section-title.split-words .word-inner {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* === Magnetic button hover state === */
+.btn[data-magnetic] {
+  position: relative;
+  transition: transform 0.4s var(--ease-spring);
+  will-change: transform;
+}
+.btn[data-magnetic]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent) 30%, transparent), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.btn[data-magnetic]:hover::after { opacity: 1; }
+
+/* === Modern enhanced focus ring === */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* Reduced-motion safety for new layers */
+@media (prefers-reduced-motion: reduce) {
+  .grain { animation: none; }
+  .hero-title .char { opacity: 1; transform: none; }
+  .split-words .word .word-inner { opacity: 1; transform: none; filter: none; }
+  .cursor-dot, .cursor-ring { display: none; }
 }
