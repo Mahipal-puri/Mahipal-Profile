@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Mahipal Puri — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #14182a;
+    --ink-soft: #3a4055;
+    --ink-mute: #6a7186;
+    --rule: #d8dce5;
+    --accent: #1f3a8a;
+    --accent-soft: #eef2ff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    font-size: 9.5pt;
+    line-height: 1.3;
+    -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 9mm 14mm 6mm;
+    margin: 0 auto;
+    background: #fff;
+  }
+
+  /* Header */
+  .name {
+    font-size: 23pt;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: var(--ink);
+  }
+  .contact {
+    margin-top: 3px;
+    text-align: center;
+    font-size: 9pt;
+    color: var(--ink-soft);
+  }
+  .contact a { color: var(--ink-soft); text-decoration: none; }
+  .contact .sep { margin: 0 6px; color: var(--rule); }
+
+  /* Section header */
+  .section { margin-top: 6px; }
+  .section-h {
+    font-size: 9.8pt;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1.2px solid var(--accent);
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+  }
+
+  /* Profile */
+  .profile { color: var(--ink-soft); text-align: justify; }
+
+  /* Education / Internship rows */
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .row .left { font-weight: 700; color: var(--ink); }
+  .row .right { color: var(--ink-mute); font-size: 9pt; white-space: nowrap; }
+  .row-sub {
+    display: flex;
+    justify-content: space-between;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-size: 9.5pt;
+    margin-top: 0;
+  }
+  .block + .block { margin-top: 4px; }
+
+  /* Internship bullets */
+  ul.bullets { list-style: none; margin-top: 3px; }
+  ul.bullets li {
+    position: relative;
+    padding-left: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 1px;
+  }
+  ul.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 3px; top: 6px;
+    width: 3.5px; height: 3.5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* Projects */
+  .project { margin-bottom: 3px; }
+  .project-h {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .project-name { font-weight: 700; color: var(--ink); }
+  .project-stack {
+    font-style: italic;
+    color: var(--ink-mute);
+    font-size: 9pt;
+  }
+  .project-pipe { color: var(--rule); }
+  .project-desc {
+    color: var(--ink-soft);
+    margin-top: 0;
+    padding-left: 0;
+    font-size: 9.5pt;
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    row-gap: 2px;
+    column-gap: 10px;
+    font-size: 9.5pt;
+  }
+  .skills-grid .k {
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .skills-grid .v { color: var(--ink-soft); }
+
+  /* Achievements */
+  .ach-row { color: var(--ink-soft); margin-bottom: 1px; font-size: 9.5pt; }
+  .ach-row b { color: var(--ink); }
+
+  /* Print rules */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; padding: 14mm 16mm 12mm; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ HEADER ============ -->
+  <h1 class="name">Mahipal Puri</h1>
+  <div class="contact">
+    +91 9785146279<span class="sep">|</span>
+    mahipalpuri21@gmail.com<span class="sep">|</span>
+    linkedin.com/in/mahipal-puri-822ba4294<span class="sep">|</span>
+    github.com/Mahipal-puri<span class="sep">|</span>
+    mahipal-profile.vercel.app
+  </div>
+
+  <!-- ============ PROFILE ============ -->
+  <div class="section">
+    <div class="section-h">Profile</div>
+    <p class="profile">
+      Computer Science Engineering student specialising in full-stack web development (MERN, React/Next.js) and
+      applied machine learning. Industry experience at Netparam Technologies plus 15+ shipped projects spanning
+      web, Android and ML — most deployed to production on Vercel. Focused on performant, accessible interfaces
+      and clean, maintainable code.
+    </p>
+  </div>
+
+  <!-- ============ EDUCATION ============ -->
+  <div class="section">
+    <div class="section-h">Education</div>
+
+    <div class="block">
+      <div class="row">
+        <span class="left">Jodhpur Institute of Engineering &amp; Technology</span>
+        <span class="right">2023 – Present</span>
+      </div>
+      <div class="row-sub">
+        <span>Bachelor of Technology in Computer Science &amp; Engineering</span>
+        <span>CGPA: 7.89</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="row">
+        <span class="left">Kalpana Chawla International School, Nagaur</span>
+        <span class="right">2023</span>
+      </div>
+      <div class="row-sub">
+        <span>Class XII – Senior Secondary (RBSE)</span>
+        <span>Percentage: 69.8%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ INTERNSHIP ============ -->
+  <div class="section">
+    <div class="section-h">Internship</div>
+    <div class="row">
+      <span class="left">Netparam Technologies Pvt. Ltd.</span>
+      <span class="right">May 2025 – July 2025</span>
+    </div>
+    <div class="row-sub">
+      <span>MERN Stack Developer Intern</span>
+      <span>Jaipur, India</span>
+    </div>
+    <ul class="bullets">
+      <li>Built end-to-end features for an e-commerce platform across the full MERN stack (MongoDB, Express.js, React.js, Node.js).</li>
+      <li>Implemented RESTful APIs, reusable React components, and integrated frontend with backend services.</li>
+      <li>Collaborated on code reviews, Git-based workflows, and modern deployment practices.</li>
+    </ul>
+  </div>
+
+  <!-- ============ PROJECTS ============ -->
+  <div class="section">
+    <div class="section-h">Projects</div>
+
+    <div class="project">
+      <div class="project-h">
+        <span class="project-name">Personal Portfolio Website</span>
+        <span class="project-pipe">|</span>
+        <span class="project-stack">HTML5, CSS3, JavaScript, Three.js, Vercel</span>
+      </div>
+      <p class="project-desc">Production portfolio with a 3D Three.js particle background, custom cursor with magnetic states, scroll-driven reveals, glassmorphism UI, animated SVG progress rings, and infinite tech ticker. Fully responsive, accessible, and deployed on Vercel with GitHub CI/CD. (mahipal-profile.vercel.app)</p>
+    </div>
+
+    <div class="project">
+      <div class="project-h">
+        <span class="project-name">PetVerse</span>
+        <span class="project-pipe">|</span>
+        <span class="project-stack">TypeScript, React, Next.js, Vercel</span>
+      </div>
+      <p class="project-desc">Full-stack pet-care platform connecting owners with services, products and a community — built with a modern TypeScript stack and deployed to production.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-h">
+        <span class="project-name">RecruitPro</span>
+        <span class="project-pipe">|</span>
+        <span class="project-stack">TypeScript, React, Next.js, Tailwind CSS</span>
+      </div>
+      <p class="project-desc">Recruitment-management SaaS that streamlines job postings, candidate pipelines and HR workflows, designed with a clean dashboard UI.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-h">
+        <span class="project-name">News Reader AI</span>
+        <span class="project-pipe">|</span>
+        <span class="project-stack">TypeScript, React, Web Speech API</span>
+      </div>
+      <p class="project-desc">AI-powered news reader frontend with article browsing, user profiles, AI responses and voice playback via the Web Speech API.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-h">
+        <span class="project-name">Health Prediction System</span>
+        <span class="project-pipe">|</span>
+        <span class="project-stack">Python, scikit-learn, Pandas, Jupyter</span>
+      </div>
+      <p class="project-desc">Machine-learning notebooks that predict the likelihood of common diseases from symptom and biometric inputs using classification models.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-h">
+        <span class="project-name">Client-Server Architecture</span>
+        <span class="project-pipe">|</span>
+        <span class="project-stack">Java, Socket Programming, Networking</span>
+      </div>
+      <p class="project-desc">Java implementation of a client-server communication system covering socket programming, request handling and protocol design.</p>
+    </div>
+  </div>
+
+  <!-- ============ SKILLS ============ -->
+  <div class="section">
+    <div class="section-h">Technical Skills</div>
+    <div class="skills-grid">
+      <span class="k">Programming Languages</span>
+      <span class="v">C, Java, Python, JavaScript, TypeScript</span>
+
+      <span class="k">Web Development</span>
+      <span class="v">HTML5, CSS3, React.js, Next.js, Node.js, Express.js, Tailwind CSS, Three.js</span>
+
+      <span class="k">Databases</span>
+      <span class="v">MongoDB, SQL (MySQL)</span>
+
+      <span class="k">AI &amp; Data Science</span>
+      <span class="v">NumPy, Pandas, scikit-learn, Machine Learning, Jupyter</span>
+
+      <span class="k">Mobile</span>
+      <span class="v">Android (Java), Kotlin, Android Studio</span>
+
+      <span class="k">Tools &amp; Platforms</span>
+      <span class="v">Git, GitHub, Vercel, VS Code, Postman, Microsoft Excel, Canva</span>
+    </div>
+  </div>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <div class="section">
+    <div class="section-h">Achievements &amp; Certifications</div>
+    <p class="ach-row"><b>Certifications:</b> C Programming Course; Understanding Body Language. <b>Open Source:</b> 15+ public repositories on GitHub spanning web, mobile, AI/ML, systems and security domains, with multiple production deployments on Vercel.</p>
+  </div>
+
+</div>
+</body>
+</html>
